@@ -104,3 +104,15 @@ router.post('/login', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.post('/logout', withAuth, (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).end()
+            console.log("you are logged out")
+        });
+    } else {
+        console.log("could not log out")
+        res.status(404).end();
+    }
+})
