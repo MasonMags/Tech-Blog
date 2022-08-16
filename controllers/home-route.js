@@ -4,7 +4,7 @@ const Comment = require('../models/Comment');
 const User = require('../models/User')
 const withAuth = require('../utils/auth')
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
       attributes: ['id', 'title', 'post_text', 'created_at'],
@@ -52,5 +52,38 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
   res.render('signup');
 });
+
+router.get('/post/:id', async (req, res) =>{
+  try {
+    await Post.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes : [
+      'id',
+      'post_text',
+      'title',
+      'created_at'
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
+} catch (err) {
+  console.log(err)
+  res.status(500).json(err)
+}
+})
 
 module.exports = router
