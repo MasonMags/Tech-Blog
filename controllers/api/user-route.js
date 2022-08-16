@@ -67,3 +67,40 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.post('/login', async (req, res) => {
+    try {
+        const userData = await User.findOne({where: { email: req.body.email }  });
+
+        if (!userData) {
+            res
+            .status(400)
+            .json({ message: 'User not found!'});
+            return;
+        }
+        const correctPassword = await userData.checkPassword(req.body.password);
+
+        if (!correctPassword) {
+            res
+            .status(400)
+            .json({ message: 'Incorrect email or password! Please try again.'})
+            return;
+        }
+
+        // console.log(correctPassword.password)
+
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.username = dbUserData.username;
+            req.session.logged_in = true;
+
+            res
+            .status(200)
+            .json({ user: userData, message: 'you are now logged in'});
+            console.log(chalk.blue('you are logged in'))
+            console.log(userData)
+        });
+    } catch(err) {
+        console.log(err)
+        res.status(500).json(err);
+    }
+});
