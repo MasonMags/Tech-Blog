@@ -25,3 +25,12 @@ router.post('/', withAuth, async (req, res) => {
     res.status(500).json(err)
   }
   });
+
+  router.delete('/:id', withAuth, async (req, res) => {
+    const deletedComment = await Comment.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    res.json(deletedComment);
+})
