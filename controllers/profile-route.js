@@ -30,7 +30,7 @@ router.get('/', withAuth, async (req, res) => {
               }
         ]
     })
-    const posts = postData.get({ plain: true })
+    const posts = postData.map({ plain: true })
     res.render('profile', {posts, logged_in: true })
 } 
 catch (err) {
@@ -41,7 +41,7 @@ catch (err) {
 
 router.get('/edit/:id', async (req, res) =>{
     try {
-      const editPostData = await Post.findOne({
+      const postData = await Post.findOne({
       where: {
         id: req.params.id
       },
@@ -66,7 +66,7 @@ router.get('/edit/:id', async (req, res) =>{
         }
       ]
     })
-    const editPost = editPostData.get({ plain: true })
+    const editPost = postData.get({ plain: true })
     res.render('edit-post', { editPost, loggedIn: req.session.loggedIn});
   } catch (err) {
     console.log(err)

@@ -55,7 +55,7 @@ router.get('/signup', (req, res) => {
 
 router.get('/post/:id', async (req, res) =>{
   try {
-    const singlePostData = await Post.findOne({
+    const postData = await Post.findOne({
     where: {
       id: req.params.id
     },
@@ -80,7 +80,7 @@ router.get('/post/:id', async (req, res) =>{
       }
     ]
   })
-  const singlePost = singlePostData.get({ plain: true })
+  const singlePost = postData.get({ plain: true })
   res.render('single-post', { singlePost, loggedIn: req.session.loggedIn});
 } catch (err) {
   console.log(err)
