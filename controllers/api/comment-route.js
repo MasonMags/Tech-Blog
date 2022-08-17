@@ -34,3 +34,5 @@ router.post('/', withAuth, async (req, res) => {
     })
     res.json(deletedComment);
 })
+
+module.exports = router;
