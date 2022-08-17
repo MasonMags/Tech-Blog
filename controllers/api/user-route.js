@@ -137,4 +137,13 @@ router.put('/:id', withAuth, (req, res) => {
 }
 });
 
+router.delete('/:id', withAuth, (req, res) => {
+    const deletedData = User.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    res.json(deletedData);
+})
+
 module.exports = router;
