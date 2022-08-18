@@ -14,13 +14,11 @@ const signUp = async (event) => {
   
       if (response.ok) {
         console.log('Successful sign up')
-        document.location.replace('/profile');
+        document.location.replace('/');
       } else {
         alert('Failed to sign up.');
       }
     }
   };
 
-  document
-  .querySelector('#sign-up')
-  .addEventListener('click', signUp);
+  document.querySelector('.signup-form').addEventListener('click', signUp);
