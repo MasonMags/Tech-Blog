@@ -13,7 +13,7 @@ const login = async (event) => {
   
       if (response.ok) {
         console.log('Successful log in')
-        document.location.replace('/profile');
+        document.location.replace('/');
       } else {
         console.log('Failed to log in. login.js');
       }
@@ -21,5 +21,5 @@ const login = async (event) => {
   };
 
   document
-  .querySelector('#login')
+  .querySelector('.login-form')
   .addEventListener('click', login);
