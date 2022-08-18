@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Post, User, Comment} = require('../../models');
-const withAuth = require('../../utils/auth');
+const withAuth = require('../../utils/auth.js');
 const sequelize = require('../../config/connection');
 
 router.get('/', async (req, res) => {
@@ -112,4 +112,4 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.json(deletedData);
 })
 
-  module.export = router;
+  module.exports = router;

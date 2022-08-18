@@ -2,7 +2,7 @@ const router = require('express').Router();
 const User = require('../../models/User');
 const Post = require('../../models/Post');
 const Comment = require('../../models/Comment');
-const withAuth = require('../../utils/auth');
+const withAuth = require('../../utils/auth.js');
 
 router.get('/', async (req, res) => {
  try{
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
  try {
     const userData = User.findOne({
         attributes: { exclude: ['password']},
@@ -118,7 +118,7 @@ router.post('/logout', withAuth, (req, res) => {
 });
 
 // updating a user by id
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
  try {
     const userData = await User.update(req.body, {
         individualHooks: true,
@@ -137,8 +137,8 @@ router.put('/:id', withAuth, (req, res) => {
 }
 });
 
-router.delete('/:id', withAuth, (req, res) => {
-    const deletedData = User.destroy({
+router.delete('/:id', withAuth, async (req, res) => {
+    const deletedData = await User.destroy({
         where: {
             id: req.params.id
         }
