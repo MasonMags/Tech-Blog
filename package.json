@@ -4,28 +4,28 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "seed": "node seeds/index.js"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "seed": "node seeds/index.js"
     },
     "repository": {
-      "type": "git",
-      "url": "https://github.com/MasonMags/Tech-Blog"
+        "type": "git",
+        "url": "https://github.com/MasonMags/Tech-Blog"
     },
     "author": "",
     "license": "ISC",
     "bugs": {
-      "url": "https://github.com/MasonMags/Tech-Blog/issues"
+        "url": "https://github.com/MasonMags/Tech-Blog/issues"
     },
     "homepage": "",
     "dependencies": {
-      "bcrypt": "^5.0.1",
-      "dotenv": "^8.6.0",
-      "express": "^4.18.1",
-      "express-handlebars": "^5.3.5",
-      "express-session": "^1.17.3",
-      "handlebars": "^4.7.7",
-      "mysql2": "^2.3.3",
-      "sequelize": "^6.21.1"
+        "bcrypt": "^5.0.1",
+        "bootstrap": "^5.2.0",
+        "dotenv": "^8.6.0",
+        "express": "^4.18.1",
+        "express-handlebars": "^5.3.5",
+        "express-session": "^1.17.3",
+        "handlebars": "^4.7.7",
+        "mysql2": "^2.3.3",
+        "sequelize": "^6.21.1"
     }
-  }
-  
+}
