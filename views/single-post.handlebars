@@ -1,7 +1,7 @@
 <div class="edit-page">
 {{> post-info post}}
 
-{{!-- {{#if loggedIn}} --}}
+
 <form class="comment-form">
   <div>
     <textarea name="comment-body"></textarea>
@@ -11,18 +11,9 @@
     <button type="submit">Add Comment</button>
   </div>
 </form>
-{{!-- {{/if}} --}}
+
 
 {{> comments post.comments}}
 </div>
 
-{{!-- {{#unless loggedIn}}
-<div>
-    <p>Log in to comment!</p>
-</div>
-{{/unless}} --}}
-
-
-{{!-- {{#if loggedIn}} --}}
 <script src="/js/comment.js"></script>
-{{!-- {{/if}} --}}
