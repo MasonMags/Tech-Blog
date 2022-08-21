@@ -92,3 +92,44 @@ body {
     padding-inline-start: 0px !important;
     text-align: center !important;
 }
+
+/* single post styling */
+
+.edit-page{
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    text-align: center !important;
+}
+
+.profile-post-list {
+    margin-right: 70px
+}
+
+/* create post styling */
+
+.newpost {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    text-align: center !important; 
+}
+
+.create-btn {
+    color:#64ffda
+}
+
+/* edit page styling */
+
+.edit-page {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    text-align: center !important;   
+}
