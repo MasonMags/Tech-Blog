@@ -54,7 +54,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/post/:id', async (req, res) =>{
+router.get('/post/:id', withAuth, async (req, res) =>{
   try {
     const postData = await Post.findOne({
     where: {
@@ -81,8 +81,8 @@ router.get('/post/:id', async (req, res) =>{
       }
     ]
   })
-  const singlePost = postData.get({ plain: true })
-  res.render('single-post', { singlePost, loggedIn: req.session.loggedIn});
+  const post = postData.get({ plain: true })
+  res.render('single-post', { post, loggedIn: req.session.loggedIn});
 } catch (err) {
   console.log(err)
   res.status(500).json(err)
