@@ -16,7 +16,7 @@
     "bugs": {
         "url": "https://github.com/MasonMags/Tech-Blog/issues"
     },
-    "homepage": "",
+    "homepage": "https://techblog-22.herokuapp.com/",
     "dependencies": {
         "bcrypt": "^5.0.1",
         "bootstrap": "^5.2.0",
