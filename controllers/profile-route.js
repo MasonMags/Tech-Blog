@@ -78,7 +78,7 @@ router.get('/', withAuth, (req, res) => {
       });
   });
 
-router.get('/edit/:id', async (req, res) =>{
+router.get('/edit/:id', withAuth, async (req, res) =>{
     try {
       const postData = await Post.findOne({
       where: {
@@ -113,7 +113,7 @@ router.get('/edit/:id', async (req, res) =>{
   }
   });
 
-  router.get('/newpost', (req, res) => {
+  router.get('/newpost', withAuth, (req, res) => {
     res.render('new-posts');
   });
   
